@@ -12,7 +12,7 @@ const PlayerSchema = new Schema({
   team: {
     type: String
   },
-  available: {
+  currentPlayer: {
     type: Boolean,
     default: false
   }

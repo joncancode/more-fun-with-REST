@@ -4,27 +4,28 @@ const express = require('express');
 const router = express.Router();
 
 //GET
-router.get('/ninjas', (req, res) => {
+router.get('/stats', (req, res) => {
   res.send({ type: 'GET' });
-
 });
 
 //POST
-router.post('/ninjas', (req, res) => {
-  res.send({ type: 'POST' });
-
+router.post('/stats', (req, res) => {
+  console.log(req.body);
+  res.send({
+    type: 'POST',
+    name: req.body.name,
+    number: req.body.number
+  });
 });
 
 //PUT
-router.put('/ninjas/:id', (req, res) => {
+router.put('/stats/:id', (req, res) => {
   res.send({ type: 'PUT' });
-
 });
 
 //DELETE
-router.get('/ninjas/:id', (req, res) => {
+router.delete('/stats/:id', (req, res) => {
   res.send({ type: 'DELETE' });
-
 });
 
 module.exports = router;

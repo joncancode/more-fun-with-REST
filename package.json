@@ -1,0 +1,28 @@
+{
+  "name": "RESTful",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joncancode/more-fun-with-REST.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joncancode/more-fun-with-REST/issues"
+  },
+  "homepage": "https://github.com/joncancode/more-fun-with-REST#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "eslint": "^4.6.0",
+    "eslint-config-defaults": "^9.0.0",
+    "nodemon": "^1.11.0"
+  }
+}

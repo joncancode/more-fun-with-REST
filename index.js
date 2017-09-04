@@ -8,8 +8,10 @@ const mongoose = require('mongoose');
 const app = express();
 
 //connect to mongo db
-mongoose.connect('mongodb://localhost/nbastats');
+mongoose.connect('mongodb://localhost/nbahometowns');
 mongoose.Promise = global.Promise;
+
+app.use(express.static('public'));
 
 app.use(bodyParser.json());
 

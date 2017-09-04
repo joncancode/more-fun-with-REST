@@ -5,13 +5,26 @@ const router = express.Router();
 
 const Player = require('../models/player');
 
+// GET ALL PLAYERS
+// router.get('/hometowns', (req, res, next) => {
+//   Player.find({}).then( players => {
+//     res.send(players);
+//   });
+// });
+
 //GET
-router.get('/stats', (req, res, next) => {
-  res.send({ type: 'GET' });
+router.get('/hometowns', (req, res, next) => {
+  Player.geoNear(
+    {type: 'Point', coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)]},
+    {maxDistance: 100000, spherical: true}
+  ).then( (players) => {
+    res.send(players);
+  });
+  
 });
 
 //POST
-router.post('/stats', (req, res, next) => {
+router.post('/hometowns', (req, res, next) => {
   Player.create(req.body)
     .then(player => {
       res.send(player);
@@ -20,7 +33,7 @@ router.post('/stats', (req, res, next) => {
 });
 
 //PUT
-router.put('/stats/:id', (req, res, next) => {
+router.put('/hometowns/:id', (req, res, next) => {
   Player.findByIdAndUpdate({ _id: req.params.id }, req.body).then(() => {
     Player.findOne({ _id: req.params.id }).then(player => {
       res.send(player);
@@ -29,7 +42,7 @@ router.put('/stats/:id', (req, res, next) => {
 });
 
 //DELETE
-router.delete('/stats/:id', (req, res, next) => {
+router.delete('/hometowns/:id', (req, res, next) => {
   Player.findByIdAndRemove({ _id: req.params.id }).then(player => {
     res.send(player);
   });

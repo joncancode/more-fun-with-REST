@@ -9,12 +9,12 @@ const PlayerSchema = new Schema({
     type: String,
     required: [true, 'name field is required']
   },
-  team: {
+  position: {
     type: String
   },
   currentPlayer: {
     type: Boolean,
-    default: false
+    default: true
   }
   //add in geo location
 });
